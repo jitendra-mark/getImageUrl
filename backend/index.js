@@ -26,7 +26,7 @@ app.post("/upload", upload.array("file", 10), (req, res) => {
             return res.status(400).json({ error: "No files uploaded" });
         }
         const urls = files.map((file) => file.location);
-        res.json({ urls });
+        res.status(201).json({ message:"succuessfully Uploaded" , urls });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
